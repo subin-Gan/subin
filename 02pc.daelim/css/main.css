@@ -1,0 +1,735 @@
+@charset "UTF-8";
+
+*{margin: 0;
+padding: 0;}
+li{list-style: none;}
+a{text-decoration: none;}
+button{border: none;background: none;cursor: pointer;}
+/* button 내부색과 테두리 없애기 */
+
+body{font-family: "맑은 고딕","돋움","malgun gothic",dotum,sans-serif;
+}
+/* 검은색 부분**************************************************************** */
+.sitemap_wrap{
+    position: fixed;
+    /* 전체 창 감싸기 */
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 999;
+    /* 제일 위로 띄우기 */
+    display: none;
+}
+.sitemap_wrap>.swiper{
+    width: 428px;
+    height: 243px;
+    right: 370px;
+    top: 460px;
+}
+.sitemap_wrap.on{
+    display: block;
+}
+.sitemap_wrap .content{
+    width: 1200px;
+    height: 800px;
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    
+    
+}
+.sitemap_wrap .content.on{
+    display: block;
+}
+.sitemap_wrap .content .depth1{
+    width: 100%;
+    display: flex;
+   
+}
+.sitemap_wrap .content .depth1>li{
+    width: calc(100%/7);
+
+}
+/* <a href="#">회사소개</a>만 적용됨 */
+.sitemap_wrap .content .depth1>li>a{
+    color: white;
+    font-size: 25px;
+}
+
+/* depth2 */
+
+.sitemap_wrap .content .depth1>li>.depth2{
+    margin-bottom: 20px;
+
+}
+.sitemap_wrap .content .depth1>li>.depth2>li{
+
+}
+.sitemap_wrap .content .depth1>li>.depth2>li>a{
+    font-size:16px;
+    text-indent: 10px;
+    color: #fff;
+    display: block;
+    margin-bottom: 5px;
+    background: url("../images/bul01\ \(1\).gif")no-repeat left center;
+}
+.sitemap_wrap .content .depth1>li>.depth2>li:hover>a {
+    color: #37699E;
+    text-decoration: underline;
+    
+}
+
+/* depth3 */
+.sitemap_wrap .content .depth1>li>.depth2>li .depth3{
+    margin-bottom: 10px;
+    border-left: 1px solid rgba(255,255,255,0.5);
+
+}
+.sitemap_wrap .content .depth1>li>.depth2>li .depth3 li{
+
+}
+.sitemap_wrap .content .depth1>li>.depth2>li .depth3 li a{
+    display: block;
+    font-size: 13px;
+    text-indent: 10px;
+    color: #ccc;
+}
+.sitemap_wrap .content .depth1>li>.depth2>li .depth3 li:hover a{
+    color: #37699E;
+    text-decoration: underline;
+}
+/* 검은색 화면 안 슬라이더 사진 ******************************************************************/
+.bck{
+    height: 500px;
+    position: relative;
+}
+.bck .bck_wrap{
+    border: 1px solid red;
+    text-align: center;
+}
+.bck .bck_wrap .bck_slide{
+    width: 428px;
+    position: absolute;
+    z-index: 999;
+    margin-top: 18px;
+    left: 18%;
+}
+
+
+/* 닫기버튼 ****************************************************************************/
+.btn_close{
+    position: absolute;
+    right: 0;
+    margin-top:-625px;
+    width: 20px;
+    height: 20px;
+    background: url("../images/btn_sitemap_close.png") no-repeat;
+    text-indent: -99999px;
+}
+.btn_close.on{
+    content: none;
+}
+
+
+
+
+/* 맨 위********************************************************************************** */
+#header{
+    width: 100%;
+    
+    border-bottom: 1px solid #d0d0d0;
+}
+#header .header-inner{
+    width: 1200px;
+    height: 70px;
+    margin: auto;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#header .header-inner h1 a{
+    display: block;
+    text-indent: -99999px;
+    width: 98px;
+    height: 28px;
+    background: url("../images/pic_mtopLogo.png") no-repeat;
+}
+#header .header-inner .gnb{
+    display: flex;
+    /* border: 1px solid red; */
+}
+#header .header-inner .gnb li{
+    margin-right: 60px;
+    /* border: 1px solid red; */
+    position: relative;
+
+}
+#header .header-inner .gnb li::before{
+    content:"";
+    width: 3px;
+    height: 16px;
+    background: #37699E;
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    margin-top: -8px; 
+    display: none;
+    /* 여기서는 나오지 않게 */
+}
+#header .header-inner .gnb li:hover::before{
+    display: block;
+    /* 마우스 가져다 댔을 때 나오게하기 */
+}
+#header .header-inner .gnb li a{
+    /* 인라인형식이기때문에 높이줘도 안바뀜 그렇기 떄문에 display:block주기 */
+    display: block;
+    color: #222;
+    font-weight: bold;
+    height: 70px;
+    line-height: 70px;
+
+}
+#header .header-inner .util{
+    display: flex;
+}
+#header .header-inner .util li{
+    margin-left: 23px;
+    position: relative;
+}
+#header .header-inner .util li:first-child{
+    margin-left: 0;
+}
+/* 검색 폼 *****************************************/
+#header .header-inner .util .search_form{
+    width: 400px;
+    height: 58px;
+    background: url("../images/bg_searchbox.png") no-repeat;
+    position: absolute;
+    left: -330px;
+    top: 36px;
+    z-index: 100;
+    padding: 9px 20px 9px 20px;
+    display: none;
+}
+#header .header-inner .util .search_form.on{
+    display: block;
+}
+/* form태그에서 날릴때에는 text-indent말고 position으로 한다.  */
+#header .header-inner .util .search .search_form legend{
+    position: absolute;
+    left: -99999px;
+}
+#header .header-inner .util .search fieldset{
+    border: none;
+}
+#header .header-inner .util .search form input{
+    width: 290px;
+    height: 30px;
+    border:none;
+    margin-top: 9px;
+    float: left;
+}
+#header .header-inner .util .search form .btn_search{
+    text-indent: -99999px;
+    width: 51px;
+    height: 10px;
+    background: url("../images/btn_search.png")no-repeat;
+    float: left;
+    margin-top: 20px;
+}
+#header .header-inner .util .search a{
+    display: block;
+    text-indent: -99999px;
+    width: 15px;
+    height: 15px;
+    background: url("../images/ico_mTopetc01.png") no-repeat;
+    cursor: pointer;
+}
+/* 영어 변경************************************************************************ */
+#header .header-inner .util .lan a{
+    display: block;
+    text-indent: -99999px;
+    width: 27px;
+    height: 10px;
+    background: url("../images/ico_mTopetc02.png") no-repeat;
+  
+}
+/* 전체메뉴 ************************************************************************* */
+#header .header-inner .util .all a{
+    display: block;
+    text-indent: -99999px;
+    width: 14px;
+    height: 12px;
+    background: url("../images/ico_mTopetc04.png") no-repeat;
+  
+}
+
+#header .header-inner .util li:first-child{
+    margin-left: 0;
+}
+
+
+#header .header-inner .gnb li:hover a{
+    color: #092741;
+    
+}
+/* 가상셀렉터로 인재채용만 마진 0으로 줌 */
+#header .header-inner .gnb li:last-child{
+    margin-right: 0;
+}
+
+
+/* 메인************************************************************************ */
+#main{
+    width: 100%;
+    position: relative;
+}
+.content>.swiper{
+    width: 0;
+    height: 0;
+}
+.sitemap_wrap{
+
+}
+.content>.swiper>.swiper_slide2{
+    width: 428px;
+    height: 243px;
+}
+.swiper-wrapper{
+    text-align: center;
+    width: 428px;
+    height: 243px;
+}
+
+.swiper .btn_pause{
+    width: 30px;
+    height: 30px;
+    background: url(../images/ico_play.png) no-repeat;
+    position: absolute;
+    left: 50%;
+    margin-left: 22px;
+    bottom:-10px;
+    border: 1px solid red;
+    z-index: 999;
+    text-indent: -99999px;
+}
+/* 두가지 기능 on */
+.swiper .btn_pause.on{
+    background: url(../images/ico_stop.png) no-repeat;
+
+}
+.swiper-pagination{
+    position: absolute;
+    left: -30%;
+    bottom: 10px;
+    z-index: 900px;
+}
+
+/* body안 두번째 사진들 */
+
+#main .main_inner{
+    width: 1200px;
+    /* border: 5px solid red; */
+    position: absolute;
+    left: 50%;
+    top: 43%;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+    text-align: center;
+}
+#main .main_inner .inner_list{
+    display: flex;
+    /* 양옆으로 나열 */
+    flex-direction: column;
+    /* column은 반대로 생각하기 */
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
+#main .main_inner .inner_list li{
+    padding: 20px 0;
+}
+#main .main_inner .inner_list li:first-child{
+    border-bottom: 0.5px solid #fff;
+}
+#main .main_inner .txt1{
+    font-size: 20px;
+    margin: 20px 0 35px;
+    color: #fff;
+
+}
+/* 사진들 */
+#main .main_inner .list{
+    display: flex;
+    justify-content: space-between;
+    width: 1110px;
+    /* border: 1px solid blue; */
+    margin: 0 auto;
+}
+#main .main_inner .list li{
+    position: relative;
+}
+#main .main_inner .list li a h4{
+    font-size: 16px;
+    color: #fff;
+    /* 공중에 띄워서 사진 안으로 들어가게끔 기준이 되는(부모)에 position:relative주기*/
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    /* 줄바꾸지말라는 명령 */
+    white-space: nowrap;
+}
+#main .main_inner .list li .mask{
+    width: 356px;
+    height: 196px;
+    overflow: hidden;
+    position: relative;
+}
+#main .main_inner .list li .mask::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 0px solid #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#main .main_inner .list li:hover .mask::before{
+    border-width:6px;
+    z-index: 100;
+
+}
+
+/* 마우스를 가져다 댔을 때 이미지 */
+#main .main_inner .list li:hover img{
+    /* 크기조절  */
+    transform: scale(1.1);
+    /* 부드럽게 할거야 */
+    transition: all 0.2s ease-in-out;
+}
+#main .main_inner .txt2{
+    font-size: 16px;
+    color: #fff;
+    margin: 80px 0 15px;
+    white-space: pre-wrap;
+}
+.btn_link{
+    width: 178px;
+    height: 48px;
+    border: 2px solid #fff;
+    /* 옆으로 나열되면서 크기도  */
+    display: inline-block;
+    font-size: 16px;
+    background: rgba(0,0,0,0.25);
+    line-height: 48px;
+    color: #fff;
+    /* position: relative; */
+}
+.btn_link::before{
+    content: "";
+    width: 1110px;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+    bottom: -62px;
+}
+
+/* 유튜브 마지막 */
+#main .main_inner .bottom_list{
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* border: 1px solid white; */
+    bottom: -120px;
+    position: absolute;
+    margin:auto;
+    color: #fff;
+    transform: translate(-50%,-50%);
+    top: 118%;
+    left: 50%;
+    font-size: 16px;
+    white-space: nowrap;
+   
+    
+}
+#main .main_inner .bottom_list .sojamok{
+    font-size: 18px;
+    color: #fff;
+    width: 180px;
+    /* box-sizing: border-box; */
+    /* float: left; */
+    margin-top: -8px;
+    
+}
+#main .main_inner .bottom_list .sojamok::before{
+position: absolute;
+content: "";
+width: 16px;
+height: 29px;
+background: url("../images/dc_arrow.png");
+top: 0;
+right: -24px;
+}
+#main .main_inner .bottom_list li{
+    color: #fff;
+    width: 160px;
+    margin: 0 60px 0 0;
+    font-size: 17px;
+    position: relative;
+    /* box-sizing: border-box; */
+    /* float: left; */
+}
+#main .main_inner .bottom_list li span{
+    font-size: 16px;
+    color: #fff;
+    white-space: nowrap;
+}
+#main .main_inner .bottom_list li a {
+    color: #fff;
+}
+#main .main_inner .bottom_list li a img{
+    margin-top: -8px;
+    margin-right: 10px;
+    float: left;
+    padding-left: 15px;
+}
+
+
+
+
+/* footer */
+
+#footer{
+    width: 100%;
+    height: 90px;
+    background: #e1e1e1;
+}
+#footer .footer_inner{
+    width: 1200px;
+    height: 90px;
+    margin:  auto;
+    margin-top: -4px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    /* 위에 띄우기 */
+    box-sizing: border-box;
+    /* padding으로 늘어난 창을 다시 돌리기 */
+}
+/* #footer .footer_inner .info{
+
+} */
+#footer .footer_inner .info_top{
+    display: flex;
+}
+#footer .footer_inner .info_top li{
+    padding: 0 15px;
+    position: relative;
+    /* 기준을 잡으려고 position:relative를 줌 */
+}
+#footer .footer_inner .info_top li::after{
+    content: "";
+    width: 1px;
+    height: 11px;
+    background: #9b9b9b;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#footer .footer_inner .info_top li:first-child{
+    padding-left: 0;
+
+}
+#footer .footer_inner .info_top li:first-child::after{
+    display: none;
+}
+#footer .footer_inner .info_top li:nth-child(3) a{
+    font-weight: bold;
+    color: #37699E;
+}
+#footer .footer_inner .info_top li a{
+    font-size: 13px;
+    color: #333;
+    letter-spacing: -1px;
+}
+#footer .footer_inner .info_top li:last-child img{
+    width: 30px;
+}
+#footer .footer_inner .info address{
+    font-size: 13px;
+    color: #555;
+    font-style: normal;
+    padding-top: 30px;
+}
+#footer .footer_inner .family {
+    position: relative;
+}
+
+
+/* ******************************************************************* */
+#footer .footer_inner .family .btn_work{
+    /* .btn_work.on로 생략 가능 */
+    font-size: 13px;
+    color: #222;
+    width: 90px;
+    height: 35px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+    background: url("../images/ico_plus.png") no-repeat right center;
+}
+/* -가 나오도록 */
+#footer .footer_inner .family .btn_work.on{
+    /* work뒤에 공백없이 바로 .on */
+    width: 90px;
+    height: 35px;
+    background: url("../images/ico_mius.png") no-repeat right center;
+     /*background는 크기가 지정되어야 한다.  */
+    
+
+}
+#footer .footer_inner .family .btn_company{
+    margin-left: 30px;
+    font-size: 13px;
+    color: #222;
+    width: 100px;
+    height: 35px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+    background: url("../images/ico_mius.png") no-repeat right center;
+    position: relative;
+}
+#footer .footer_inner .family .btn_company.on{
+    width: 100px;
+    height: 35px;
+    background: url("../images/ico_plus.png") no-repeat right center;
+}
+
+
+
+
+/* ******************************************************************* */
+
+/* work_list */
+#footer .footer_inner .family .work_list{
+    width: 297px;
+    height: 170px;
+    background: #222;
+    position: absolute;
+    right:0;
+    transform: translateX(-40%);
+    bottom: 91px;
+    z-index: 20;
+    padding:10px 10px 10px 20px;
+    display: none;
+
+}
+#footer .footer_inner .family .work_list.on{
+    display: block;
+}
+#footer .footer_inner .family .work_list h2{
+    text-indent: 10px;
+    /* 들여쓰기 text-indent */
+    font-size: 16px;
+    color: #fff;
+    position: relative;
+    /* border-bottom: 1px solid #4b4b4b; */
+}
+#footer .footer_inner .family .work_list h2::before{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background:  rgba(255,255,255,0.5);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+
+
+}
+#footer .footer_inner .family .work_list .list{
+    padding: 10px ;
+    padding-top: 20px;
+
+}
+#footer .footer_inner .family .work_list .list li{
+    width:50%;
+    float:left;
+
+}
+#footer .footer_inner .family .work_list .list li a{
+    color: #aaa;
+    font-size: 13px;
+    letter-spacing: -1px;
+
+}
+#footer .footer_inner .family .work_list .list li:hover a{
+    text-decoration: underline;
+}
+
+
+/* company */
+#footer .footer_inner .family .company_list{
+    width: 297px;
+    height: 170px;
+    background: #3c3c3c;
+    position: absolute;
+    right:0;
+    transform: translateX(5%);
+    bottom: 91px;
+    z-index: 10;
+    padding:10px 10px 10px 20px;
+    display: none;
+
+}
+#footer .footer_inner .family .company_list.on{
+    display: block;
+
+
+}
+#footer .footer_inner .family .company_list h2{
+    text-indent: 10px;
+    font-size: 16px;
+    color: #fff;
+    position: relative;
+    /* border-bottom: 1px solid white; */
+}
+#footer .footer_inner .family .company_list h2::before{
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.5);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+}
+#footer .footer_inner .family .company_list .list{
+    padding: 10px ;
+    padding-top: 10px;
+
+}
+#footer .footer_inner .family .company_list .list li{
+    width:130px;
+    float:left;
+   
+
+}
+#footer .footer_inner .family .company_list .list li a{
+    color: #aaa;
+    font-size: 13px;
+    letter-spacing: -1px;
+    
+
+}
+#footer .footer_inner .family .company_list .list li:hover a{
+    text-decoration: underline;
+}
