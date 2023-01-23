@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>작업관리 App</title>
+    <!-- 내 css파일 위에다가 넣어야지 안겹침 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <!-- container박스를 잡아야지만 부트스트랩에서 끌어온것을 할 수 있다. 
+    섹션을 2개로 나누장  -->
+
+
+    <div class="container">
+        <h1>ToDo List</h1>
+        <section class="input_area">
+            <!-- 앱이기 때문에 form쓰지말기 -->
+            <input type="text" placeholder="새로운 작업을 입력하세요" id="task_input">
+            <button type="button" id="add_btn">+</button>
+        </section>
+
+        <section class="task_area">
+            <div class="tab_bar">
+                <div>작업목록 모두보기</div>
+                <div>진행중인 목록보기</div>
+                <div>종료된 목록보기</div>
+
+            </div>
+
+
+           <div id="task_table_wrap">
+                <!-- <div class="task_table">
+                    <div class="item">
+                        javascript 공부하기
+                    </div>
+                    <div>
+                        <button type="button" id="complete">COMPLETE</button>
+                        <button type="button" id="delete">DELETE</button>
+                    </div>
+    
+                </div> -->
+           </div>
+
+
+        </section>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
+    <script src="./js/main.js"></script>
+    
+
+</body>
+</html>
